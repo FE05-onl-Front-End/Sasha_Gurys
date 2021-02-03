@@ -18,9 +18,9 @@ let usersAge = {
 
 
     if (age < 18) {
-        underAge.push( Object.fromEntries([[surname, age]]) )
+        underAge.push( Object.fromEntries([['last name', surname], ['age', age]]) )
     } else {
-        adult.push( Object.fromEntries([[surname, age]]) )
+        adult.push( Object.fromEntries([['last name', surname], ['age', age]]) )
     }
 
 
@@ -34,19 +34,6 @@ let usersAge = {
 
 
  } ); 
-
-//либо такой вариант для первой части задания, с использованием деструктуризации, но мне больше первый нравится
-
-// Object.entries(usersAge).forEach( keyValuePair => {
-//     const [, age] = keyValuePair;
-//     if (age < 18) {
-//         underAge.push( Object.fromEntries([keyValuePair]) )
-//     } 
-//     else {
-//         adult.push( Object.fromEntries([keyValuePair]) )
-//     }
-//  } ); 
-
 
  // делаю без ${} потому что так отображается в консоли лучше, не смог нагуглить фиксу
  console.log('несовершеннолетние: ', underAge, 'совершеннолетние: ', adult,);
