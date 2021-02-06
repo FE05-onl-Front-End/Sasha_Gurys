@@ -33,12 +33,22 @@ const myAnimals = [
     new Animal ("Grimm", "Hyena", "dark-Brown", handlers[3])
 ]
 
+const lion = {
+    name: "Alex",
+    species: "Lion",
+    color: "tan",
+    handler: handlers[1],
+    isHealthy: true,
+    isIll: false
+}
+
 function zoo () {
     return {
 
-        buyAnimal (name, species, color, handler, animals) {
-            animals.push(new Animal(name, species, color, handler));
-            console.log(`${name} the ${color} ${species} is now a part of your zoo under the caring watch of ${handler.name} who has ${handler.yearsOfExp} years of experience`);
+        buyAnimal (animal, animals) {
+            animals.push(animal);
+            const {name, species, color, handler: { name:handlerName , yearsOfExp:handlerExp }} = animal;
+            console.log(`${name} the ${color} ${species} is now a part of your zoo under the caring watch of ${handlerName} who has ${handlerExp} years of experience`);
         },
 
         sellAnimal (name, animals) {
@@ -46,7 +56,8 @@ function zoo () {
             for (let specimen of animals) {
                 if (name == specimen.name) {
                     animals.splice(animals.indexOf(specimen), 1);
-                    console.log(`${specimen.name} the ${color} ${specimen.species} was sold off, hope you said your goodbyes`);
+                    const {name: animalName, species, color} = specimen;
+                    console.log(`${animalName} the ${color} ${species} was sold off, hope you said your goodbyes`);
                     saleMade = true;
                     break;
                 }
@@ -60,7 +71,8 @@ function zoo () {
             for (let specimen of animals) {
                 if (name == specimen.name) {
                     specimen.handler = handler;
-                    console.log(`${specimen.name} the ${color} ${specimen.species} is now handled by ${handler.name}`);
+                    const {name: animalName, color, species, handler: { name:handlerName , yearsOfExp:handlerExp }} = specimen;
+                    console.log(`${animalName} the ${color} ${species} is now handled by ${handlerName}, who has ${handlerExp} years of experience`);
                 }
             }
         },
@@ -70,7 +82,8 @@ function zoo () {
                 if (name == specimen.name) {
                     specimen.isHealthy = false;
                     specimen.isIll = true;
-                    console.log(`${specimen.name} the ${color} ${specimen.species} got ill, you should treat it`);
+                    const {name: animalName, color, species} = specimen;
+                    console.log(`${animalName} the ${color} ${species} got ill, you should treat it`);
                 }
             }
         },
@@ -80,7 +93,8 @@ function zoo () {
                 if (name == specimen.name) {
                     specimen.isHealthy = true;
                     specimen.isIll = false;
-                    console.log(`${specimen.name} the ${color} ${specimen.species} is healthy once again`);
+                    const {name: animalName, color, species} = specimen;
+                    console.log(`${animalName} the ${color} ${species} is healthy once again`);
                 }
             }
         }
@@ -88,3 +102,8 @@ function zoo () {
 }
 
 let manageZoo = zoo();
+manageZoo.buyAnimal(lion, myAnimals);
+manageZoo.sellAnimal("Grimm", myAnimals);
+manageZoo.reassignHandler("Spot", handlers[1], myAnimals);
+manageZoo.getIll("Trunk", myAnimals);
+manageZoo.treatAnimal("Trunk", myAnimals);
