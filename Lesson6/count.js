@@ -43,13 +43,6 @@ arrCountObj.forEach((el, i) => {
 console.log("массив без повторок:");
 console.log(arrUniques);
 
-// почему функция checkPresenceByValue читает arrUniques(аккумулятор) как undefined?
-// const arrCountObjUniques = arrCountObj.reduce((arrUniques, el, i) => {
-//     if (!checkPresenceByValue(el, arrUniques)) {
-//         arrUniques.push(el)
-//     }
-// }, [arrCountObj[0]]);
-
 const getMaxCount = (arr) => {
   let maxCount = 0;
   arr.forEach((el) => (maxCount = el.count > maxCount ? el.count : maxCount));
