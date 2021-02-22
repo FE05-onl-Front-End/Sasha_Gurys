@@ -99,3 +99,13 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+.pass {
+    text-transform: uppercase;
+    color: green;
+}
+
+.no-pass {
+    text-transform: lowercase;
+    color: red;
+}
