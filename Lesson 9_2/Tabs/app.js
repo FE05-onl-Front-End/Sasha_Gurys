@@ -10,9 +10,13 @@ const doTab = (e) => {
     if ((content.innerText = `${currentValue}`)) {
       content.innerText = "";
     }
-    tabs.splice(tabs.indexOf({ value: currentValue }), 1);
-    renderNav(nav);
-    e.target.closest(".tab").remove();
+    tabs.forEach((item, index) => {
+      if (item.value == currentValue) {
+      tabs.splice(index, 1);
+      }
+    })
+      renderNav(nav);
+    // e.target.closest(".tab").remove();
   }
 };
 
@@ -25,6 +29,9 @@ const renderNav = (nav) => {
     newTab.innerHTML = `<p>${tab.value}</p><div class="close-tab">X</div>`;
     newTab.onclick = doTab;
     nav.append(newTab);
+    if (tabs.length == 1) {
+      nav.firstChild.lastChild.remove()
+    }
   });
 };
 
