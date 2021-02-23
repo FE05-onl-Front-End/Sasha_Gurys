@@ -1,0 +1,62 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    padding: 3px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(44, 44, 44);
+    border-radius: 3px;
+}
+.navi {
+    height: 50px;
+    background-color: rgb(136, 136, 136);
+    margin-bottom: 3px;
+    width: 490px;
+    display: flex;
+    justify-content: start;
+    overflow-x: scroll;
+}
+
+.navi::-webkit-scrollbar {
+    display: none;
+  }
+
+
+.tab {
+    background-color: rgb(122, 122, 122);
+    width: 80px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    cursor: pointer;
+    margin-right: 1px;
+}
+
+.tab:hover {
+    background-color: rgb(104, 104, 104);
+}
+.close-tab {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 3px;
+    cursor: pointer;
+}
+.content {
+    width: 490px;
+    height: 440px;
+    background-color: rgb(218, 218, 218);
+    font-size: 100px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 440px;
+}
